@@ -34,14 +34,14 @@
 		<div class="container">
 			<h1>Текущие голосования</h1>
 			<hr class="mb-5">
-			@foreach
+			@foreach ($votes as $v)
 			<!-- НАЧАЛО: Карточка голосования ------------------------------------->
 			<div class="card border-info mb-4">
 				<!-- НАЧАЛО: Шапка карточки -->
 				<div class="card-header border-info">
 					<h5 class="card-title mb-0">
-						<a href="{{ action('VoteController@show', $v}}">
-							{{ $v->title }}
+						<a href="/vote/{id}">
+							{{ $v->id }}
 						</a>
 					</h5>
 				</div>
@@ -53,16 +53,16 @@
 						{{ $vote['text']}}
 					</p>
 					<!-- Кнопки голосования -->
-					<a href="{{ action('VoteController@increasePositive', $v}}" class="btn btn-outline-success mr-3">
+					<a href="/vote/positive_inc/{id}" class="btn btn-outline-success mr-3">
 						<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Я за!
 						<span class="badge badge-pill badge-success">
-							{{ $v->positive}}
+							{{ $v->id}}
 						</span>
 					</a>
-					<a href="{{ action('VoteController@increaseNegative', $v}}" class="btn btn-outline-danger mr-3">
+					<a href="/vote/positive_inc/{id}" class="btn btn-outline-danger mr-3">
 						<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Я против!
 						<span class="badge badge-pill badge-danger">
-							{{ $v->negative }}
+							{{ $v->id }}
 						</span>
 					</a>
 				</div>
@@ -71,7 +71,6 @@
 			<!-- КОНЕЦ: Карточка голосования -------------------------------------->
 		@endforeach
 		</div>
-		{{ $votes->links() }}
 	</main>
 	<!-- КОНЕЦ: Основное содержимое страницы -->
 </body>
