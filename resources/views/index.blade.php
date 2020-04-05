@@ -41,7 +41,7 @@
 				<div class="card-header border-info">
 					<h5 class="card-title mb-0">
 						<a href="/vote/{id}">
-							{{ $v->id }}
+							{{ $v['title'] }}
 						</a>
 					</h5>
 				</div>
@@ -50,19 +50,19 @@
 				<div class="card-body">
 					<!-- Текст описания -->
 					<p class="card-text mb-4">
-						{{ $vote['text']}}
+						{{ $v['text'] }}
 					</p>
 					<!-- Кнопки голосования -->
-					<a href="/vote/positive_inc/{id}" class="btn btn-outline-success mr-3">
+					<a href="/vote/positive_inc/{{ $v->id }}" class="btn btn-outline-success mr-3">
 						<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Я за!
 						<span class="badge badge-pill badge-success">
-							{{ $v->id}}
+							{{ $v->positive}}
 						</span>
 					</a>
-					<a href="/vote/positive_inc/{id}" class="btn btn-outline-danger mr-3">
+					<a href="/vote/negative_inc/{{ $v->id }}" class="btn btn-outline-danger mr-3">
 						<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Я против!
 						<span class="badge badge-pill badge-danger">
-							{{ $v->id }}
+							{{ $v->negative }}
 						</span>
 					</a>
 				</div>
