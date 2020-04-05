@@ -40,7 +40,7 @@
 				<!-- НАЧАЛО: Шапка карточки -->
 				<div class="card-header border-info">
 					<h5 class="card-title mb-0">
-						<a href="/vote/{id}">
+						<a href="/vote/{{$v->id}}">
 							{{ $v['title'] }}
 						</a>
 					</h5>
